@@ -3,7 +3,7 @@
     public class Book
     {
         public int Id { get; set; }
-        //public int BookId { get; set; }
+        
         public int PublicId { get; set; }
         public int CategoryId { get; set; }
         public string Title { get; set; }
@@ -17,8 +17,8 @@
         public DateTime DatePublished { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
-        public Reviews Reviews { get; set; }
-        public Ratings Ratings { get; set; }
+        public ICollection<Review> Reviews { get; set; }
+        public ICollection<Rating> Ratings { get; set; }
         public Category Category { get; set; }
     }
 }
