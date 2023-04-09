@@ -1,4 +1,5 @@
-﻿using E_Book_Library.Models;
+﻿using E_Book_Library.IServices;
+using E_Book_Library.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -9,10 +10,10 @@ namespace E_Book_Library.Services
 {
     public class JWTService : IJWTService
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<User> _userManager;
         private readonly IConfiguration _config;
 
-        public JWTService(UserManager<IdentityUser> userManager, IConfiguration config)
+        public JWTService(UserManager<User> userManager, IConfiguration config)
         {
             _userManager = userManager;
             _config = config;
@@ -37,6 +38,8 @@ namespace E_Book_Library.Services
             {
                 Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.Now.AddMinutes(10),
+                Issuer = _config.GetSection("JWT:Issuer").Value,
+                Audience = _config.GetSection("JWT:Audience").Value,
                 SigningCredentials = new SigningCredentials(symmetricSecurity, SecurityAlgorithms.HmacSha256)
             };
 

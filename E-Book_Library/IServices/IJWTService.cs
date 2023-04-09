@@ -1,6 +1,6 @@
 ﻿using E_Book_Library.Models;
 
-namespace E_Book_Library.Services
+namespace E_Book_Library.IServices
 {
     public interface IJWTService
     {

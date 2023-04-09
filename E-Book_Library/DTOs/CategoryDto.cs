@@ -1,6 +1,6 @@
-﻿namespace E_Book_Library.Models
+﻿namespace E_Book_Library.DTOs
 {
-    public class Category
+    public class CategoryDto
     {
         public int Id { get; set; }
         public string Name { get; set; }

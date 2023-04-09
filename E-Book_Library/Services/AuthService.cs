@@ -1,4 +1,5 @@
 ﻿using E_Book_Library.DTOs;
+using E_Book_Library.IServices;
 using E_Book_Library.Models;
 using Microsoft.AspNetCore.Identity;
 
@@ -43,7 +44,7 @@ namespace E_Book_Library.Services
                 }
 
                 login.IsSuccess = false;
-                login.Message = "Loin not Succesful";
+                login.Message = "Login not Succesful";
                 login.StatusCode = 400;
                 return login;
             }
