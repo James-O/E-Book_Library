@@ -23,6 +23,12 @@ namespace E_Book_Library.Services
             return Save();
         }
 
+        public bool DeleteCategory(Category category)
+        {
+            _appDbContext.Remove(category);
+            return Save();
+        }
+
         public ICollection<Category> GetCategories()
         {
             return _appDbContext.Categories.ToList();
@@ -39,5 +45,10 @@ namespace E_Book_Library.Services
             return saved > 0 ? true : false;
         }
 
+        public bool UpdateCategory(Category category)
+        {
+            _appDbContext.Update(category);
+            return Save();
+        }
     }
 }
