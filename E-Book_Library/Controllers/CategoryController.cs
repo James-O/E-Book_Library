@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using E_Book_Library.DTOs;
-using E_Book_Library.IServices;
 using E_Book_Library.Models;
+using Ebook.Service.Services.Interfases;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,10 +11,10 @@ namespace E_Book_Library.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-        private readonly ICategoryService _categoryService;
+        private readonly ICategoryRepository _categoryService;
         private readonly IMapper _mapper;
 
-        public CategoryController(ICategoryService categoryService, IMapper mapper)
+        public CategoryController(ICategoryRepository categoryService, IMapper mapper)
         {
             _categoryService = categoryService;
             _mapper = mapper;
@@ -24,10 +24,8 @@ namespace E_Book_Library.Controllers
         [ProducesResponseType(200, Type = typeof(IEnumerable<Category>))]
         public IActionResult GetCategories()
         {
-            CategoryResponseDto categoryResponseDto = new CategoryResponseDto();
-
-            var response = _categoryService.GetCategories();
-            var categories = _mapper.Map<List<CategoryDto>>(response);
+            var response = _categoryService.GetCategories().ToList();
+            var categories = _mapper.Map<List<Category>, List<CategoryDto>>(response);
             
             if(!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -35,12 +33,6 @@ namespace E_Book_Library.Controllers
             if(categories == null)
             {
                 return NotFound();
-            }
-            else
-            {
-                categoryResponseDto.StatusCode = 200;
-                categoryResponseDto.Message = "Users Found";
-                categoryResponseDto.IsSuccess = true;
             }
             
             return Ok(categories);
@@ -51,24 +43,9 @@ namespace E_Book_Library.Controllers
         [ProducesResponseType(400)]
         public IActionResult CreateCategory([FromBody] CategoryDto categoryDto)
         {
-            CategoryResponseDto categoryResponseDto = new CategoryResponseDto();
-
             if (categoryDto == null)
                 return BadRequest(ModelState);
-
-            var categories = _categoryService.GetCategories()
-                .Where(c => c.Name.Trim().ToUpper() == categoryDto.Name.TrimEnd().ToUpper())
-                .FirstOrDefault();
-
-            if(categories != null)
-            {
-                categoryResponseDto.Message = "Category already exists";
-                categoryResponseDto.StatusCode = 422;
-                categoryResponseDto.IsSuccess = false;
-                return Ok(categoryResponseDto);
-                //ModelState.AddModelError("", categoryResponseDto.Message = "Category already exists");
-                //return StatusCode(categoryResponseDto.StatusCode = 422, ModelState);
-            }
+        
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
@@ -77,8 +54,8 @@ namespace E_Book_Library.Controllers
             
             if (!result)
             {
-                ModelState.AddModelError("", categoryResponseDto.Message = "Something went wrong");
-                return StatusCode(categoryResponseDto.StatusCode = 500,ModelState);
+                ModelState.AddModelError("","Something went wrong");
+                return StatusCode(500,ModelState);
             }
 
             return Ok("Succesfully Created");    
@@ -87,8 +64,6 @@ namespace E_Book_Library.Controllers
         [HttpGet("categoryId")]
         public IActionResult GetCategory(int categoryId)
         {
-            CategoryResponseDto categoryResponseDto = new CategoryResponseDto();
-
             if (!_categoryService.CategoryExists(categoryId))
                 return NotFound();
 
@@ -106,15 +81,13 @@ namespace E_Book_Library.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
         public IActionResult UpdateCategory(int categoryId, [FromBody] CategoryDto categoryDto)
-        {
-            CategoryResponseDto categoryResponseDto = new CategoryResponseDto();
-            
+        {  
             if(categoryDto == null)
                 return BadRequest(ModelState);
 
             if(categoryId != categoryDto.Id)
             {
-                return BadRequest(categoryResponseDto.StatusCode=404);
+                return BadRequest();
             }
 
             if (!_categoryService.CategoryExists(categoryId))
@@ -128,8 +101,8 @@ namespace E_Book_Library.Controllers
 
             if (!response)
             {
-                ModelState.AddModelError("", categoryResponseDto.Message = "Something went wrong");
-                return StatusCode(categoryResponseDto.StatusCode = 500, ModelState);
+                ModelState.AddModelError("","Something went wrong");
+                return StatusCode(500, ModelState);
             }
 
             return Ok("Record updated");
@@ -141,8 +114,6 @@ namespace E_Book_Library.Controllers
         [ProducesResponseType(200)]
         public IActionResult DeleteCategory(int categoryId)
         {
-            CategoryResponseDto categoryResponseDto = new CategoryResponseDto();
-
             if (!_categoryService.CategoryExists(categoryId))
                 return NotFound();
 
@@ -150,6 +121,7 @@ namespace E_Book_Library.Controllers
                 return BadRequest(ModelState);
 
             var categoryToDelete = _categoryService.GetCategory(categoryId);
+            
             if(categoryToDelete == null)
             {
                 ModelState.AddModelError("","Not Found");

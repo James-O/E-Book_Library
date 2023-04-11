@@ -986,6 +986,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.0",
+          "Ebook.Models": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.10"
         },
@@ -994,6 +995,33 @@
         },
         "runtime": {
           "bin/placeholder/DataAccess.dll": {}
+        }
+      },
+      "Ebook.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.Extensions.Identity.Stores": "6.0.10"
+        },
+        "compile": {
+          "bin/placeholder/Ebook.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Ebook.Models.dll": {}
+        }
+      },
+      "Ebook.Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "DataAccess": "1.0.0",
+          "Ebook.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Ebook.Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Ebook.Service.dll": {}
         }
       }
     }
@@ -2467,12 +2495,24 @@
       "type": "project",
       "path": "../DataAccess/DataAccess.csproj",
       "msbuildProject": "../DataAccess/DataAccess.csproj"
+    },
+    "Ebook.Models/1.0.0": {
+      "type": "project",
+      "path": "../Ebook.Models/Ebook.Models.csproj",
+      "msbuildProject": "../Ebook.Models/Ebook.Models.csproj"
+    },
+    "Ebook.Service/1.0.0": {
+      "type": "project",
+      "path": "../Ebook.Service/Ebook.Service.csproj",
+      "msbuildProject": "../Ebook.Service/Ebook.Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.0",
       "DataAccess >= 1.0.0",
+      "Ebook.Models >= 1.0.0",
+      "Ebook.Service >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.10",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.10",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.10",
@@ -2508,6 +2548,12 @@
           "projectReferences": {
             "C:\\Users\\JAMES PC\\Documents\\Visual Studio 2022\\Projects\\E-Book_Library\\DataAccess\\DataAccess.csproj": {
               "projectPath": "C:\\Users\\JAMES PC\\Documents\\Visual Studio 2022\\Projects\\E-Book_Library\\DataAccess\\DataAccess.csproj"
+            },
+            "C:\\Users\\JAMES PC\\Documents\\Visual Studio 2022\\Projects\\E-Book_Library\\Ebook.Models\\Ebook.Models.csproj": {
+              "projectPath": "C:\\Users\\JAMES PC\\Documents\\Visual Studio 2022\\Projects\\E-Book_Library\\Ebook.Models\\Ebook.Models.csproj"
+            },
+            "C:\\Users\\JAMES PC\\Documents\\Visual Studio 2022\\Projects\\E-Book_Library\\Ebook.Service\\Ebook.Service.csproj": {
+              "projectPath": "C:\\Users\\JAMES PC\\Documents\\Visual Studio 2022\\Projects\\E-Book_Library\\Ebook.Service\\Ebook.Service.csproj"
             }
           }
         }

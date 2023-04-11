@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Book_Library", "E-Book_Li
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{E78DD7DE-9F78-4946-84DF-DCE66ED34401}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ebook.Models", "Ebook.Models\Ebook.Models.csproj", "{49BCFC54-B41E-4889-8D38-63180549E2A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ebook.Service", "Ebook.Service\Ebook.Service.csproj", "{98A64C04-7EC9-40BB-A0A7-899A9557B4D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{E78DD7DE-9F78-4946-84DF-DCE66ED34401}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E78DD7DE-9F78-4946-84DF-DCE66ED34401}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E78DD7DE-9F78-4946-84DF-DCE66ED34401}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49BCFC54-B41E-4889-8D38-63180549E2A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49BCFC54-B41E-4889-8D38-63180549E2A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49BCFC54-B41E-4889-8D38-63180549E2A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49BCFC54-B41E-4889-8D38-63180549E2A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98A64C04-7EC9-40BB-A0A7-899A9557B4D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98A64C04-7EC9-40BB-A0A7-899A9557B4D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98A64C04-7EC9-40BB-A0A7-899A9557B4D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98A64C04-7EC9-40BB-A0A7-899A9557B4D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

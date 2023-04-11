@@ -1,9 +1,9 @@
 ﻿using E_Book_Library.DTOs;
-using E_Book_Library.IServices;
 using E_Book_Library.Models;
+using Ebook.Service.Services.Interfases;
 using Microsoft.AspNetCore.Identity;
 
-namespace E_Book_Library.Services
+namespace Ebook.Service.Services.Implementations
 {
     public class AuthService : IAuthService
     {
@@ -24,7 +24,7 @@ namespace E_Book_Library.Services
             var user = await _userManager.FindByEmailAsync(model.Email);
 
             if (user == null)
-                return new LoginResponseDto { Message = "No record found, Kindly signup",IsSuccess=false };
+                return new LoginResponseDto { Message = "No record found, Kindly signup", IsSuccess = false };
 
             var userEmailConfirm = await _userManager.IsEmailConfirmedAsync(user);
 
@@ -48,7 +48,7 @@ namespace E_Book_Library.Services
                 login.StatusCode = 400;
                 return login;
             }
-            
+
             login.IsSuccess = false;
             login.Message = "Email not confirmed";
             login.StatusCode = 400;
@@ -58,11 +58,11 @@ namespace E_Book_Library.Services
         public async Task<RegisterResponseDto> Register(RegisterDto model)
         {
             RegisterResponseDto response = new RegisterResponseDto();
-            
+
             var checkUser = await _userManager.FindByEmailAsync(model.Email);
-            if(checkUser != null)
+            if (checkUser != null)
             {
-                return new RegisterResponseDto() { IsSuccess = false, Message="user already exist",StatusCode=400};
+                return new RegisterResponseDto() { IsSuccess = false, Message = "user already exist", StatusCode = 400 };
             }
 
             var user = new User();

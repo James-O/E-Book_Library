@@ -71,3 +71,7 @@ C:\Users\JAMES PC\Documents\Visual Studio 2022\Projects\E-Book_Library\E-Book_Li
 C:\Users\JAMES PC\Documents\Visual Studio 2022\Projects\E-Book_Library\E-Book_Library\bin\Debug\net6.0\DataAccess.pdb
 C:\Users\JAMES PC\Documents\Visual Studio 2022\Projects\E-Book_Library\E-Book_Library\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\JAMES PC\Documents\Visual Studio 2022\Projects\E-Book_Library\E-Book_Library\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\JAMES PC\Documents\Visual Studio 2022\Projects\E-Book_Library\E-Book_Library\bin\Debug\net6.0\Ebook.Models.dll
+C:\Users\JAMES PC\Documents\Visual Studio 2022\Projects\E-Book_Library\E-Book_Library\bin\Debug\net6.0\Ebook.Service.dll
+C:\Users\JAMES PC\Documents\Visual Studio 2022\Projects\E-Book_Library\E-Book_Library\bin\Debug\net6.0\Ebook.Models.pdb
+C:\Users\JAMES PC\Documents\Visual Studio 2022\Projects\E-Book_Library\E-Book_Library\bin\Debug\net6.0\Ebook.Service.pdb

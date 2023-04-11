@@ -8,8 +8,7 @@ namespace E_Book_Library.Helper
     {
         public Mapping()
         {
-            CreateMap<Category, CategoryDto>();//get
-            CreateMap<CategoryDto, Category>();//post
+            CreateMap<Category, CategoryDto>().ReverseMap();
         }
     }
 }

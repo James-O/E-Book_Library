@@ -893,6 +893,19 @@
             "rid": "win"
           }
         }
+      },
+      "Ebook.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.Extensions.Identity.Stores": "6.0.10"
+        },
+        "compile": {
+          "bin/placeholder/Ebook.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Ebook.Models.dll": {}
+        }
       }
     }
   },
@@ -2235,11 +2248,17 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Ebook.Models/1.0.0": {
+      "type": "project",
+      "path": "../Ebook.Models/Ebook.Models.csproj",
+      "msbuildProject": "../Ebook.Models/Ebook.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.0",
+      "Ebook.Models >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.10",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.10",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.10"
@@ -2271,7 +2290,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\JAMES PC\\Documents\\Visual Studio 2022\\Projects\\E-Book_Library\\Ebook.Models\\Ebook.Models.csproj": {
+              "projectPath": "C:\\Users\\JAMES PC\\Documents\\Visual Studio 2022\\Projects\\E-Book_Library\\Ebook.Models\\Ebook.Models.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

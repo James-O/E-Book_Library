@@ -14,3 +14,6 @@ C:\Users\JAMES PC\Documents\Visual Studio 2022\Projects\E-Book_Library\DataAcces
 C:\Users\JAMES PC\Documents\Visual Studio 2022\Projects\E-Book_Library\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
 C:\Users\JAMES PC\Documents\Visual Studio 2022\Projects\E-Book_Library\DataAccess\obj\Debug\net6.0\Interop.Accessibility.dll
 C:\Users\JAMES PC\Documents\Visual Studio 2022\Projects\E-Book_Library\DataAccess\obj\Debug\net6.0\DataAccess.csproj.ResolveComReference.cache
+C:\Users\JAMES PC\Documents\Visual Studio 2022\Projects\E-Book_Library\DataAccess\bin\Debug\net6.0\Ebook.Models.dll
+C:\Users\JAMES PC\Documents\Visual Studio 2022\Projects\E-Book_Library\DataAccess\bin\Debug\net6.0\Ebook.Models.pdb
+C:\Users\JAMES PC\Documents\Visual Studio 2022\Projects\E-Book_Library\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CopyComplete

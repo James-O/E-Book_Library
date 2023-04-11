@@ -1,8 +1,8 @@
 using DataAccess;
 using E_Book_Library.Helper;
-using E_Book_Library.IServices;
 using E_Book_Library.Models;
-using E_Book_Library.Services;
+using Ebook.Service.Services.Implementations;
+using Ebook.Service.Services.Interfases;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -24,7 +24,7 @@ builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<AppD
 //JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IJWTService, JWTService>();
-builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 
 

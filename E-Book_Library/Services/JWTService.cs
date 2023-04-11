@@ -1,12 +1,12 @@
-﻿using E_Book_Library.IServices;
-using E_Book_Library.Models;
+﻿using E_Book_Library.Models;
+using Ebook.Service.Services.Interfases;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace E_Book_Library.Services
+namespace Ebook.Service.Services.Implementations
 {
     public class JWTService : IJWTService
     {
@@ -26,9 +26,9 @@ namespace E_Book_Library.Services
                 new Claim(ClaimTypes.Email, user.Email),
                 new Claim(ClaimTypes.Name, user.UserName)
             };
-            var roles =await _userManager.GetRolesAsync(user);
+            var roles = await _userManager.GetRolesAsync(user);
 
-            foreach(var role in roles)
+            foreach (var role in roles)
             {
                 claims.Add(new Claim(ClaimTypes.Role, role));
             }
